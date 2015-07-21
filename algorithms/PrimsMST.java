@@ -7,10 +7,18 @@ import Graph.core.Vertex;
 import java.util.*;
 
 /**
+ * Perform Prims algorithm to determine minimum spanning tree
+ *
  * Created by Nandkishore on 7/17/2015.
  */
 public class PrimsMST {
     public final HashSet<Edge> mstEdgeSet;
+
+    /**
+     * Maintain two different containers, one priority queue containing all the visited edges with priority based on its weight.
+     * And another Set contains all the unvisited vertices.
+     * @param g
+     */
     PrimsMST(Graph g) {
         mstEdgeSet = new HashSet<Edge>();
         Set<Vertex> vertices = g.getAllVertices();
