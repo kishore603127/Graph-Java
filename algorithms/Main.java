@@ -11,9 +11,13 @@ import java.util.Iterator;
  */
 public class Main {
     public static void main(String[] args) {
-
+        runBFS();
     }
 
+    private static void runBFS() {
+        Graph g = new CreateGraph(false).getGraph();
+        print(new BFS(g, g.getVertex("A")).vertexSet);
+    }
     private void runTopologicalSort() {
         Graph g = new CreateGraph(true).getGraph();
         print(new TopologicalSort(g).order);
