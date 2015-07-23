@@ -7,10 +7,10 @@ import Graph.core.Vertex;
 import java.util.*;
 
 /**
- * Breadth First Search graph traversal
+ * Depth First Search graph traversal
  *
  */
-public class BFS {
+public class DFS {
     /**
      * Set of vertices that are reachable from source vertex.
      */
@@ -25,15 +25,15 @@ public class BFS {
      * @param g Given Graph
      * @param s Source Vertex
      */
-    BFS(Graph g, Vertex s) {
+    DFS(Graph g, Vertex s) {
         vertexSet = new LinkedList<Vertex>();
         discoveryMap = new HashMap<Vertex, String>();
 
-        Queue<Vertex> vertices = new LinkedList<Vertex>();
+        Stack<Vertex> vertices = new Stack<Vertex>();
         vertices.add(s);
         discoveryMap.put(s, DISCOVERED);
         while(!vertices.isEmpty()) {
-            Vertex v = vertices.poll();
+            Vertex v = vertices.pop();
             vertexSet.add(v);
             for(Edge e : g.getAllEdgesForVertex(v)) {
                 if(!discoveryMap.containsKey(e.getTo())) {
