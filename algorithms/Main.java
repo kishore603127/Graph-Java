@@ -11,7 +11,14 @@ import java.util.Iterator;
  */
 public class Main {
     public static void main(String[] args) {
-        runDFS();
+        runFlyodWarshall();
+    }
+
+    private static void runFlyodWarshall() {
+        Graph g = new CreateGraph(false).getGraph();
+        FlyodWarshall fw = new FlyodWarshall(g);
+        print(fw.vertices);
+        fw.printSolution();
     }
 
     private static void runBFS() {
