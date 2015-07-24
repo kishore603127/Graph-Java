@@ -11,9 +11,14 @@ import java.util.Iterator;
  */
 public class Main {
     public static void main(String[] args) {
-        runFlyodWarshall();
+        runAllPaths();
     }
 
+    private static void runAllPaths() {
+        Graph g = new CreateGraph(true).getGraph();
+        print(g.isDirectEdge(g.getVertex("B"), g.getVertex("E")));
+        print(new AllPaths(g, g.getVertex("C"), g.getVertex("B")).N);
+    }
     private static void runFlyodWarshall() {
         Graph g = new CreateGraph(false).getGraph();
         FlyodWarshall fw = new FlyodWarshall(g);

@@ -163,9 +163,27 @@ public class Graph {
         return edgeMap;
     }
 
+    public Set<Vertex> getAllAdjacentVertices(Vertex v) {
+        Set<Vertex> adjacentVertices = new HashSet<Vertex>();
+        for(Edge e: this.getAllEdgesForVertex(v)) {
+            adjacentVertices.add(e.getTo());
+        }
+        return adjacentVertices;
+    }
+    /**
+     *
+     * @param a source vertex
+     * @param b destination vertex
+     * @return True is there is a direct edge between a and b else False
+     */
+    public boolean isDirectEdge(Vertex a, Vertex b) {
+        return this.getAllAdjacentVertices(a).contains(b);
+    }
+
     /**
      * Prints the graph with each line representing Vertex and all the outgoing edges
      */
+
     public void print() {
         for(Vertex v : this.graphMap.keySet()) {
             System.out.print(v.getValue() + " -> ");
