@@ -11,12 +11,16 @@ import java.util.Iterator;
  */
 public class Main {
     public static void main(String[] args) {
-        runAllPaths();
+        runBipartite();
     }
 
+    private static void runBipartite() {
+        Graph g = new CreateGraph(true).getGraph();
+        print(new Bipartite(g).isPartite(g.getVertex("A")));
+    }
     private static void runAllPaths() {
         Graph g = new CreateGraph(true).getGraph();
-        print(g.isDirectEdge(g.getVertex("B"), g.getVertex("E")));
+        print(g.isDirectEdge(g.getVertex("B"), g.getVertex("A")));
         print(new AllPaths(g, g.getVertex("C"), g.getVertex("B")).N);
     }
     private static void runFlyodWarshall() {

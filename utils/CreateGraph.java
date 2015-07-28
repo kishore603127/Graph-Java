@@ -44,11 +44,11 @@ public class CreateGraph {
 
         g.addEdge(new Edge(A,B,1));
         g.addEdge(new Edge(A,C,2));
-        g.addEdge(new Edge(C,B,3));
-        g.addEdge(new Edge(D,B,4));
-        g.addEdge(new Edge(E,B,5));
-        g.addEdge(new Edge(D,C,5));
-        g.addEdge(new Edge(E,D,6));
+        //g.addEdge(new Edge(C,B,3));
+        g.addEdge(new Edge(B,D,4));
+        g.addEdge(new Edge(B,E,5));
+        g.addEdge(new Edge(C,D,5));
+        g.addEdge(new Edge(C,E,6));
         g.addEdge(new Edge(E,F,7));
 
     }

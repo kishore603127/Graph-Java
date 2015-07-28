@@ -12,18 +12,19 @@ import java.util.List;
  */
 public class AllPaths {
     List<Path> allPaths;
-    public int N=0;
+    public int N;
     AllPaths(Graph g, Vertex s, Vertex d) {
-        getAllPaths(g,s,d);
+        this.N = getAllPaths(g,s,d);
     }
     private int getAllPaths(Graph g, Vertex s, Vertex d) {
         if(s.equals(d))
             return 0;
         if(g.isDirectEdge(s, d))
             return 1;
+        int count=0;
         for(Edge e : g.getAllEdgesForVertex(s)) {
-            this.N += getAllPaths(g,e.getTo(), d);
+            count+= getAllPaths(g,e.getTo(), d);
         }
-        return this.N;
+        return count;
     }
 }
