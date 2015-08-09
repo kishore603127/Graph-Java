@@ -1,7 +1,9 @@
 package Graph.utils;
 
+import Graph.algorithms.NetworkFlowGraph;
 import Graph.core.Edge;
 import Graph.core.Graph;
+import Graph.core.NetworkEdge;
 import Graph.core.Vertex;
 
 /**
@@ -50,6 +52,36 @@ public class CreateGraph {
         g.addEdge(new Edge(C,D,5));
         g.addEdge(new Edge(C,E,6));
         g.addEdge(new Edge(E,F,7));
+
+    }
+
+    public CreateGraph(boolean isDirected, boolean isNetwork) {
+        Graph g = this.graph = new NetworkFlowGraph(isDirected);
+
+        Vertex A = new Vertex("A");
+        Vertex B = new Vertex("B");
+        Vertex C = new Vertex("C");
+        Vertex D = new Vertex("D");
+        Vertex S = new Vertex("S");
+        Vertex T = new Vertex("T");
+
+        g.addVertex(A);
+        g.addVertex(B);
+        g.addVertex(C);
+        g.addVertex(D);
+        g.addVertex(S);
+        g.addVertex(T);
+
+        Edge e1 = new NetworkEdge(S,A,16);
+        Edge e2 = new NetworkEdge(S,C,13);
+        Edge e3 = new NetworkEdge(C,A,4);
+        Edge e4 = new NetworkEdge(A,C,10);
+        Edge e5 = new NetworkEdge(A,B,12);
+        Edge e6 = new NetworkEdge(B,T,20);
+        Edge e7 = new NetworkEdge(B,C,9);
+        Edge e8 = new NetworkEdge(C,D,14);
+        Edge e9 = new NetworkEdge(D,T,4);
+        Edge e10 = new NetworkEdge(D,B,7);
 
     }
 }

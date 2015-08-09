@@ -181,6 +181,44 @@ public class Graph {
     }
 
     /**
+     * Source is the vertex of a directe graph which have no incoming edges
+     * Commonly used for network flow problems
+     * @return source vertex
+     */
+    public Vertex getSource() {
+        Map<Vertex, List<Edge>> incomingEdgeMap = this.getIncomingEdgeMap();
+        for(Vertex key : incomingEdgeMap.keySet()) {
+            if(incomingEdgeMap.get(key).isEmpty())
+                return key;
+        }
+        return null;
+    }
+
+    /**
+     * Get All incoming edges for given vertex
+     * @param v Source vertex
+     * @return List of all the edges that are incoming
+     */
+    public List<Edge> getAllIncomingEdges(Vertex v) {
+        if(v==null)
+            throw new NullPointerException("Null Vertex Found");
+        return this.getIncomingEdgeMap().get(v);
+    }
+
+    /**
+     * Destination is the vertex of a directe graph which have no outgoing edges
+     * Commonly used for network flow problems
+     * @return destination vertex
+     */
+    public Vertex getDestination() {
+        for(Vertex key : this.getAllVertices()) {
+            if(this.getAllEdgesForVertex(key).isEmpty())
+                return key;
+        }
+        return null;
+    }
+
+    /**
      * Prints the graph with each line representing Vertex and all the outgoing edges
      */
 
